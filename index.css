@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -374,6 +378,7 @@ body {
     margin-bottom: 3rem;
     background-color: #1e1e24;
     border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
     color: #fff;
 }
@@ -383,7 +388,7 @@ body {
     font-weight: 700;
     text-align: left;
     padding: 16px 20px;
-    background-color: #1e1e24;
+    background-color: #2a2a32;
 }
 
 .concerts th,
@@ -397,8 +402,8 @@ body {
     font-weight: 600;
 }
 
-.concerts tbody tr:nth-child(even) {
-    background-color: #262630;
+.concerts tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .concerts tbody tr:hover {
