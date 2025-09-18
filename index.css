@@ -127,9 +127,9 @@ body {
     text-decoration: none;
 }
 
-.cta-button:hover {
+.get-ticket-button:hover {
     background-color: #ffed4e;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 
 .concerts {
@@ -314,10 +314,11 @@ body {
     overflow: hidden;
 }
 
-.map-container img {
+.map-container iframe {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 300px;
+    border: 0;
+    display: block;
 }
 
 .footer {
@@ -418,4 +419,171 @@ body {
 
 .concerts button:hover {
     background-color: #d62828;
+}
+
+@media (max-width: 1200px) {
+
+    .history-content,
+    .concerts table,
+    .members-flex {
+        max-width: 100%;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .main h1 {
+        font-size: 42px;
+    }
+
+    .band-members h2,
+    .history-text h2,
+    .contact h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .main h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .main-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .members-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .history-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .history-image img {
+        float: none;
+        margin: 0 0 20px 0;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group-inputs {
+        flex-direction: column;
+    }
+
+    .form-group-inputs input {
+        width: 100%;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+        .concerts table {
+            border: 0;
+            width: 100%;
+        }
+    
+        .concerts thead {
+            display: none;
+        }
+    
+        .concerts tbody,
+        .concerts tr,
+        .concerts td {
+            display: block;
+            width: 100%;
+        }
+    
+        .concerts tr {
+            margin-bottom: 20px;
+            background-color: #1e1e24;
+            border-radius: 10px;
+            padding: 15px;
+        }
+    
+        .concerts td {
+            padding: 10px;
+            text-align: right;
+            position: relative;
+        }
+    
+        .concerts td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            font-weight: bold;
+            color: #ccc;
+            text-align: left;
+        }
+    
+        .concerts button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #0a0a0a;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 20px;
+        }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .main h1 {
+        font-size: 28px;
+    }
+
+    .main-subtitle {
+        font-size: 16px;
+    }
+
+    .get-ticket-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .concerts table {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }
