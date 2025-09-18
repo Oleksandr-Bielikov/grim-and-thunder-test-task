@@ -63,7 +63,22 @@ const submitForm = (event) => {
     textAreaMessage.value = '';
     console.log('Form submitted');
     showPopup('Кнопка відправляє дані форми, і записує їх в Local Storage', event.submitter);
-  }
+    
+    async function getData() {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Fetched data: ', data);
+      } catch (error) {
+        console.error("Error fetching data:", error);       
+      }
+    };
+    getData()
+  };
 };
 
 form.addEventListener('submit', submitForm);
