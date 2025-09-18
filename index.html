@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grim & Thunder Band</title>
-    <link rel="stylesheet" href="/index.css" />
+    <title>Гурт «Грим та Грім» | Український Рок | Концерти та Музика</title>
+    <meta
+      name="description"
+      content="Офіційний сайт українського рок-гурту «Грим та Грім». Дізнайтеся нашу історію, розклад концертів, познайомтеся з учасниками та послухайте справжній український рок."
+    />
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
   </head>
   <body>
     <header class="header">
@@ -88,15 +93,24 @@
         <h2>Учасники гурту</h2>
         <div class="members-flex">
           <div class="member">
-            <img src="/img/max_photo.webp" alt="Максим - гітарист" />
+            <img
+              src="/img/max_photo.webp"
+              alt="Максим - гітарист гурту Грим та Грім"
+            />
             <h3>Максим — гітара</h3>
           </div>
           <div class="member">
-            <img src="/img/olena_photo.jpeg" alt="Олена - вокалістка" />
+            <img
+              src="/img/olena_photo.jpeg"
+              alt="Олена - вокалістка гурту Грим та Грім"
+            />
             <h3>Олена — вокал</h3>
           </div>
           <div class="member">
-            <img src="/img/taras_photo.jpeg" alt="Тарас - барабанщик" />
+            <img
+              src="/img/taras_photo.jpeg"
+              alt="Тарас - барабанщик гурту Грим та Грім"
+            />
             <h3>Тарас — барабани</h3>
           </div>
         </div>
@@ -107,7 +121,10 @@
       <div class="container">
         <div class="history-content">
           <div class="history-image">
-            <img src="/img/concert_photo.jpg" alt="Concert" />
+            <img
+              src="/img/concert_photo.jpg"
+              alt="Живий концерт гурту Грим та Грім на сцені"
+            />
           </div>
           <div class="history-text">
             <h2>Наша історія</h2>
@@ -151,15 +168,17 @@
 
         <div class="contact-content">
           <div class="contact-form">
-            <form>
+            <form id="form">
               <div class="form-group-inputs">
                 <div class="form-group">
                   <label for="name">Ім'я</label>
                   <input type="text" id="name" name="name" required />
+                  <span class="error-message"></span>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input type="email" id="email" name="email" required />
+                  <span class="error-message"></span>
                 </div>
               </div>
               <div class="form-group">
@@ -171,6 +190,7 @@
                   placeholder="Розкажи про свої ідеї..."
                   required
                 ></textarea>
+                <span class="error-message"></span>
               </div>
               <button type="submit" class="submit-button">Відправити</button>
             </form>
@@ -219,6 +239,8 @@
         </div>
       </div>
     </footer>
-    <script src="/index.js"></script>
+    <!--Pop-Up-->
+    <div class="popup-message" id="popup"></div>
+    <script type="module" src="/src/js/index.js"></script>
   </body>
 </html>

@@ -426,6 +426,40 @@ body {
     background-color: #d62828;
 }
 
+.popup-message {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.popup-message.show {
+    opacity: 1;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #e74c3c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+
 @media (max-width: 1200px) {
 
     .history-content,
@@ -449,6 +483,7 @@ body {
 
 @media (max-width: 768px) {
     .nav-menu {
+        display: none;
         gap: 15px;
         font-size: 14px;
     }
@@ -591,4 +626,55 @@ body {
         gap: 15px;
         text-align: center;
     }
+}
+
+/* Стилі для кнопки-бургера */
+.burger-menu {
+    display: none;
+    /* Спочатку приховуємо на десктопах */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    /* Поверх інших елементів */
+}
+
+.burger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Стилі для відкритого меню на мобільних */
+.nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    /* Відступ від header */
+    right: 20px;
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Анімація для іконки-бургера при відкритті */
+.burger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+    /* Середня лінія зникає */
+}
+
+.burger-menu.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
