@@ -22,4 +22,4 @@
 ## 🚀 Запуск проекту
 1. Клонувати репозиторій:
    ```bash
-   git clone https://github.com/твій-нікнейм/імя-репозиторію.git
+   git clone https://github.com/Oleksandr-Bielikov/grim-and-thunder-test-task
