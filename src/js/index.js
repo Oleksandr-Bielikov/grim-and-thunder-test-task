@@ -77,8 +77,9 @@ const submitForm = (event) => {
         console.error("Error fetching data:", error);       
       }
     };
-    getData()
+    getData();
   };
+  alert('Form submitted');
 };
 
 form.addEventListener('submit', submitForm);
