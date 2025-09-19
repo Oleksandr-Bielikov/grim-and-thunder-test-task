@@ -1,4 +1,5 @@
 import { showPopup } from "./popup.js";
+
 const form = document.querySelector('#form');
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
@@ -7,25 +8,21 @@ const textAreaMessage = document.querySelector('#message');
 function showError(input, message) {
   const formGroup = input.parentElement;
   formGroup.classList.add('error');
-  const errorMessage = formGroup.querySelector('.error-message');
-  errorMessage.textContent = message;
+  formGroup.querySelector('.error-message').textContent = message;
 }
 
 function clearError(input) {
   const formGroup = input.parentElement;
   formGroup.classList.remove('error');
-  const errorMessage = formGroup.querySelector('.error-message');
-  errorMessage.textContent = '';
+  formGroup.querySelector('.error-message').textContent = '';
 }
 
-const submitForm = (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   let isValid = true;
 
-  clearError(inputName);
-  clearError(inputEmail);
-  clearError(textAreaMessage);
+  [inputName, inputEmail, textAreaMessage].forEach(clearError);
 
   if (inputName.value.trim() === '') {
     showError(inputName, 'Будь ласка, вкажіть ваше ім\'я.');
@@ -52,37 +49,29 @@ const submitForm = (event) => {
     isValid = false;
   }
 
-  if (isValid) {
-    localStorage.setItem('message', JSON.stringify({
-      name: inputName.value,
-      email: inputEmail.value,
-      message: textAreaMessage.value
-    }));
-    inputName.value = '';
-    inputEmail.value = '';
-    textAreaMessage.value = '';
-    console.log('Form submitted');
-    showPopup('Кнопка відправляє дані форми, і записує їх в Local Storage', event.submitter);
-    
-    async function getData() {
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+  if (!isValid) return;
 
-        const data = await response.json();
-        console.log('Fetched data: ', data);
-      } catch (error) {
-        console.error("Error fetching data:", error);       
-      }
-    };
-    getData();
-  };
-  alert('Form submitted');
-};
+  localStorage.setItem('message', JSON.stringify({
+    name: inputName.value,
+    email: inputEmail.value,
+    message: textAreaMessage.value
+  }));
 
-form.addEventListener('submit', submitForm);
+  showPopup('Форма надіслана та збережена в Local Storage', form.querySelector('button[type="submit"]'));
+
+  inputName.value = '';
+  inputEmail.value = '';
+  textAreaMessage.value = '';
+
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    const data = await response.json();
+    console.log('Fetched data:', data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+});
 
 document.querySelectorAll('.concerts button').forEach(button => {
   button.addEventListener('click', (e) => {
